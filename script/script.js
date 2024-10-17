@@ -6,7 +6,7 @@ const userTable = document.getElementById('userTable');
 // Genero numeri da 1 a 76
 const numeriEstratti = new Set();
 
-function generaNumeroRandom() {
+const generaNumeroRandom = function() {
     if (numeriEstratti.size === 76) {
         numberExtracted.textContent = "Tutti i numeri sono stati estratti!";
         return;
@@ -19,7 +19,7 @@ function generaNumeroRandom() {
 
     numeriEstratti.add(numeroRandom);
     numberExtracted.textContent = numeroRandom;
-}
+};
 
 RandomN.addEventListener('click', generaNumeroRandom);
 
@@ -36,7 +36,7 @@ const creaTabellaNumeri = () => {
 creaTabellaNumeri();
 
 // Tabella dell'utente
-function creaTabellaUtente() {
+const creaTabellaUtente = function() {
     let numeriGenerati = [];
     
     while (numeriGenerati.length < 24) {
@@ -49,7 +49,7 @@ function creaTabellaUtente() {
             userTable.appendChild(cellNumber);
         }
     }
-}
+};
 
 if (userTable) {
     creaTabellaUtente();
