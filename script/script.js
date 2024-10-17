@@ -3,10 +3,10 @@ const numberExtracted = document.getElementById('numberExtracted');
 const tableNumbers = document.getElementById('tableNumbers');
 const userTable = document.getElementById('userTable');
 
-//genero n 1-76
+// Genero numeri da 1 a 76
 const numeriEstratti = new Set();
 
-const generaNumeroRandom = () => {
+function generaNumeroRandom() {
     if (numeriEstratti.size === 76) {
         numberExtracted.textContent = "Tutti i numeri sono stati estratti!";
         return;
@@ -19,7 +19,7 @@ const generaNumeroRandom = () => {
 
     numeriEstratti.add(numeroRandom);
     numberExtracted.textContent = numeroRandom;
-};
+}
 
 RandomN.addEventListener('click', generaNumeroRandom);
 
@@ -33,24 +33,19 @@ const creaTabellaNumeri = () => {
     }
 };
 
-
 creaTabellaNumeri();
 
-//  tabella dell'utente
+// Tabella dell'utente
 function creaTabellaUtente() {
     let numeriGenerati = [];
     
     while (numeriGenerati.length < 24) {
         let numero = Math.floor(Math.random() * 76) + 1;
-        // controllo se il numero non è già presente nell'array
-        if (numeriGenerati.indexOf(numero) === -1) {
+        if (!numeriGenerati.includes(numero)) {
             numeriGenerati.push(numero);
             let cellNumber = document.createElement('div');
-
             cellNumber.textContent = numero;
-            
             cellNumber.className = 'numero-user';
-            
             userTable.appendChild(cellNumber);
         }
     }
@@ -62,14 +57,13 @@ if (userTable) {
     console.error("L'elemento userTable non è stato trovato.");
 }
 
-// verificare se il numero estratto è presente nella tabella dell'utente
+// Verificare se il numero estratto è presente nella tabella dell'utente
 const verificaNumeroEstratto = () => {
     const numeroEstratto = parseInt(numberExtracted.textContent);
     const numeriUtente = document.querySelectorAll('.numero-user');
 
     numeriUtente.forEach(numero => {
         if (parseInt(numero.textContent) === numeroEstratto) {
-
             numero.style.backgroundColor = '#a90a0a';
         }
     });
@@ -77,7 +71,7 @@ const verificaNumeroEstratto = () => {
 
 RandomN.addEventListener('click', verificaNumeroEstratto);
 
-// verificare se il numero estratto è presente nella tabella dei numeri
+// Verificare se il numero estratto è presente nella tabella dei numeri
 const verificaNumeroEstratti = () => {
     const numeroEstratto = parseInt(numberExtracted.textContent);
     const numeriEstratti = document.querySelectorAll('.numero');
@@ -92,9 +86,7 @@ const verificaNumeroEstratti = () => {
 
 RandomN.addEventListener('click', verificaNumeroEstratti);
 
-
-
-// se l'utente ha vinto
+// Se l'utente ha vinto
 const verificaVittoria = () => {
     const numeriUtente = document.querySelectorAll('.numero-user');
     let tuttiTrovati = true;
@@ -111,10 +103,9 @@ const verificaVittoria = () => {
     }
 };
 
-// Aggiungere la verifica della vittoria all'evento click
 RandomN.addEventListener('click', verificaVittoria);
 
-//bottone per riavviare il gioco 
+// Bottone per riavviare il gioco 
 const riavviaGioco = () => {
     location.reload();
 };
