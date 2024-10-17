@@ -9,25 +9,25 @@
 </head>
 <body>
     <h1>Tombolone</h1>
-    <div>
-        <h2 id="numberExtracted">
-            <!--script-->
-        </h2>
+    <div class="game-controls">
+        <button id="RandomN">Estrai</button>
+        <h2 id="numberExtracted"><!--script--></h2>
+        <button id="riavviaButton">Riavvia</button>
     </div>
     <main>
-        <form id="RandomForm">
+        <div class="table-container">
+            <h3 class="table-title">Tabellone</h3>
             <div id="tableNumbers">
                 <!--script-->
             </div>
-        </form>
-    </main>
-    <div id="UserInput">
-        <h2>La tua tabella di gioco</h2>
-        <button id="RandomN">Let's Play</button>
-        <div class="userTable">
-            <!-- script -->
         </div>
-    </div>
+        <div class="table-container">
+            <h3 class="table-title">La tua scheda</h3>
+            <div id="userTable">
+                <!-- script -->
+            </div>
+        </div>
+    </main>
     <script src="./script/script.js"></script>
 </body>
 </html>
