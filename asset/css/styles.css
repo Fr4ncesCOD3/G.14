@@ -100,7 +100,9 @@ main {
 }
 
 #RandomN:hover, #riavviaButton:hover {
-    background-color: #a90a0a90;
+    background-color: #dd0c0c90;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px #e90b0b;
 }
 
 .table-container {
